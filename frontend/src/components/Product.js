@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 import '../styles/product.css';
 
-const Product = ({ product, isBrowsingHistory }) => {
+const Product = ({ product, isBrowsingHistory, isVerticalScrollItem }) => {
 	return (
 		<Card className='mt-3 p-0'>
 			<Link to={`/product/${product._id}`}>
@@ -26,9 +26,9 @@ const Product = ({ product, isBrowsingHistory }) => {
 					</Card.Title>
 				</Link>
 
-				<Card.Text as='div'>
+				<Card.Text as='div' style={isVerticalScrollItem ? { display: "none"} : {display: "block"}}>
 					{product && product.rating && (
-						<Rating
+						<Rating 
 							value={product.rating}
 							text={`${product.numReviews} Review${
 								product.numReviews > 1 ? 's' : ''

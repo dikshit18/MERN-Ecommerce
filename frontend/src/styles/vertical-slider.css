@@ -17,7 +17,7 @@
     left: 0 !important;
 }
 .vertical-slider .items {
-    height: 827px;
+    height: 765px;
     display: flex;
     flex-direction: column;
     overflow-y: scroll;

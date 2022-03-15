@@ -25,7 +25,7 @@ const VerticalSlider = ({ header, products, position }) => {
               return (
                 <>
                   <Col key={product._id}>
-                    <Product product={product} />
+                    <Product isVerticalScrollItem={true} product={product} />
                   </Col>
                 </>
               );
