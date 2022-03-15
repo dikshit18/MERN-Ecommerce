@@ -88,30 +88,31 @@ const HomePage = ({ match, history }) => {
     <>
       <Meta />
       {/* display carousel only on larger screens */}
-      {!keyword ? (
+      {/* {!keyword ? (
         window.innerWidth > 430 && <ProductCarousel />
       ) : (
         <Link className="btn btn-outline btn-outline-primary my-2" to="/">
           Go Back
         </Link>
-      )}
+      )} */}
       {/* display this search bar on home page on mobile screens */}
       <div className="d-block d-md-none">
         <SearchBox history={history} />
       </div>
-      <>
-        <div style={{ position: "relative", height: "900px" }}>
-          <VerticalSlider
-            position="left"
-            header="Continue Browsing"
-            products={products}
-          ></VerticalSlider>
-          <VerticalSlider
-            position="right"
-            header="Buy Again"
-            products={products}
-          ></VerticalSlider>
-        </div>
+      <>{!loading && 
+      <div style={{ position: "relative", height: "900px" }}>
+      <VerticalSlider
+        position="left"
+        header="Continue Browsing"
+        products={products}
+      ></VerticalSlider>
+      <VerticalSlider
+        position="right"
+        header="Buy Again"
+        products={products}
+      ></VerticalSlider>
+    </div>}
+        
       </>
 
       {/* if the user needs to be prompted about email verification, show this message */}
