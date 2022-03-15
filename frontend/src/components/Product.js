@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 import '../styles/product.css';
 
-const Product = ({ product }) => {
+const Product = ({ product, isBrowsingHistory }) => {
 	return (
 		<Card className='mt-3 p-0'>
 			<Link to={`/product/${product._id}`}>
@@ -17,7 +17,7 @@ const Product = ({ product }) => {
 				/>
 			</Link>
 
-			<Card.Body>
+			<Card.Body style={isBrowsingHistory ? { display: "none"} : {display: "block"}}>
 				<Link
 					to={`/product/${product._id}`}
 					style={{ color: 'dimgray', textDecoration: 'none' }}>

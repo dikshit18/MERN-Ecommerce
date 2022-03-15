@@ -12,6 +12,7 @@ import Message from "../components/Message";
 import SearchBox from "../components/SearchBox";
 import ProductSkeleton from "../components/ProductSkeleton";
 import HorizontalSlider from "../components/horizontalSlider";
+import VerticalSlider from "../components/VerticalSlider";
 import Slider from "react-slick";
 
 const HomePage = ({ match, history }) => {
@@ -98,6 +99,20 @@ const HomePage = ({ match, history }) => {
       <div className="d-block d-md-none">
         <SearchBox history={history} />
       </div>
+      <>
+        <div style={{ position: "relative", height: "900px" }}>
+          <VerticalSlider
+            position="left"
+            header="Continue Browsing"
+            products={products}
+          ></VerticalSlider>
+          <VerticalSlider
+            position="right"
+            header="Buy Again"
+            products={products}
+          ></VerticalSlider>
+        </div>
+      </>
 
       {/* if the user needs to be prompted about email verification, show this message */}
       {promptVerfication ? (
@@ -113,10 +128,25 @@ const HomePage = ({ match, history }) => {
         </Message>
       ) : !loading && products ? (
         <>
-          <HorizontalSlider header="Best Selling Items" products={[...products]}></HorizontalSlider>
-		  <HorizontalSlider header="Browse By Category" products={[...products]}></HorizontalSlider>
-		  <HorizontalSlider header="Recommended Items" products={[...products]}></HorizontalSlider>
-          
+          <HorizontalSlider
+            header="Best Selling Items"
+            products={[...products]}
+          ></HorizontalSlider>
+          <HorizontalSlider
+            header="Browse by Category"
+            products={[...products]}
+          ></HorizontalSlider>
+          <HorizontalSlider
+            header="Recommended Items"
+            products={[...products]}
+          ></HorizontalSlider>
+          <br />
+          <HorizontalSlider
+            header="Browsing History"
+            products={[...products]}
+            isBrowsingHistory={true}
+          ></HorizontalSlider>
+
           {/* <Row>
             {products.length
               ? products.map((product) => {
