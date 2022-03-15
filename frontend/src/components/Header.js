@@ -89,7 +89,7 @@ const Header = () => {
 					{/* display searchbar inside navbar in large screens only */}
 					<Route
 						render={({ history }) => (
-							<div className='d-none d-md-block'>
+							<div className='d-none d-md-block' style={{width: '60%', margin: 'auto'}}>
 								<SearchBox history={history} />
 							</div>
 						)}
