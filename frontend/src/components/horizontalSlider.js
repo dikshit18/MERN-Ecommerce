@@ -3,10 +3,9 @@ import "../styles/product-carousel.css";
 import { Row, Col } from "react-bootstrap";
 import Product from "./Product";
 import Slider from "react-slick";
+import "../styles/horizontal-slider.css";
 
-
-
-const HorizontalSlider = ({ header, products }) => {
+const HorizontalSlider = ({ header, products, isBrowsingHistory }) => {
   var settings = {
     dots: true,
     infinite: false,
@@ -17,14 +16,17 @@ const HorizontalSlider = ({ header, products }) => {
   return (
     <>
       <div className="slider container">
-        <h3 className="text-center">{header}</h3>
+        <h3 className="header text-center">{header}</h3>
         <Slider {...settings}>
           {products &&
             products.map((product) => {
               return (
                 <>
                   <Col key={product._id}>
-                    <Product product={product} />
+                    <Product
+                      product={product}
+                      isBrowsingHistory={isBrowsingHistory}
+                    />
                   </Col>
                 </>
               );
